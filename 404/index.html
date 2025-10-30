@@ -1,0 +1,256 @@
+<!-- Made by johnstoncamron15, managed by kaosu. -->
+<!-- https://beaconbot.site -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beacon Bot | Overview</title>
+  <link rel="stylesheet" href="https://beaconbot.site/assets/css/style.css" />
+  <script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://beaconbot.site/assets/img/logo.png" type="image/png" />
+
+  <meta property="og:title" content="Beacon Bot">
+  <meta property="og:description" content="The home for Beacon—Designed for Discord communities worldwide.">
+  <meta property="og:image" content="https://beaconbot.site/assets/img/embed.png">
+  <meta property="og:url" content="https://beaconbot.site">
+  <meta property="og:type" content="website">
+  <style>
+    /* === GENERAL STYLES === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0d0f24 0%, #05050f 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .highlight {
+      color: #00b4d8;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 15, 40, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00b4d8;
+    }
+
+    .nav-links a {
+      margin: 0 1.2rem;
+      color: #d1d5db;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #00b4d8;
+    }
+
+    .login-btn {
+      background: linear-gradient(90deg, #00b4d8, #0096c7);
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00b4d8;
+    }
+
+    /* === MAIN CONTENT === */
+    .main-content {
+      padding-top: 8rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00b4d8, #48cae4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 3rem;
+    }
+
+    /* === FEATURE GRID === */
+    .features {
+      margin-top: 3rem;
+    }
+
+    .features h2 {
+      font-size: 2rem;
+      color: #00b4d8;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 2rem 1rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 20px rgba(0, 180, 216, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: #00b4d8;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* === TOP.GG WIDGET === */
+    .topgg-widget {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .topgg-widget img {
+      width: 400px;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .topgg-widget img:hover {
+      transform: scale(1.05);
+    }
+
+    /* === FOOTER === */
+    footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔹 FIXED NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Beacon Bot</div>
+
+    <nav class="nav-links">
+      <a href="https://beaconbot.site">Home</a>
+    </nav>
+
+    <button class="login-btn" id="loginBtn">
+      <i class="fa-brands fa-discord"></i> Add to Server
+    </button>
+  </header>
+
+  <!-- 🔹 MAIN CONTENT -->
+  <div class="main-content">
+    <header>
+      <h1>Welcome to <span class="highlight">Beacon Bot</span></h1>
+      <p>Your all-in-one moderation server management tool built for next-gen Discord communities.</p>
+    </header>
+
+    <section class="features">
+      <h2>Error D:</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <i class="fa-solid fa-cog"></i>
+          <h3>404</h3>
+          <p>Uh oh! Page not found on our site.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Beacon Bot. Designed for Discord communities worldwide.</p>
+    </footer>
+  </div>
+
+  <script>
+    const CLIENT_ID = "1426142433111965776";
+    const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&permissions=8&integration_type=0&scope=bot`;
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      window.location.href = OAUTH_URL;
+    });
+  </script>
+</body>
+</html>
