@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beacon Bot | Partners</title>
+  <link rel="stylesheet" href="https://beaconbot.site/assets/css/style.css" />
+  <script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://beaconbot.site/assets/img/logo.png" type="image/png" />
+
+  <meta property="og:title" content="Beacon Bot Partners">
+  <meta property="og:description" content="Discover the amazing partners that power Beacon Bot.">
+  <meta property="og:image" content="https://beaconbot.site/assets/img/embed.png">
+  <meta property="og:url" content="https://beaconbot.site/partners">
+  <meta property="og:type" content="website">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body { background:radial-gradient(circle at 20% 20%, #0d1b2a, #000814); color:#fff; overflow-x:hidden; }
+    a { text-decoration:none; }
+    .navbar { display:flex; justify-content:space-between; align-items:center; background:rgba(10,15,30,0.8); backdrop-filter:blur(12px); padding:1rem 2.5rem; position:fixed; width:100%; top:0; z-index:999; box-shadow:0 0 25px rgba(0,180,216,0.2); }
+    .logo { font-size:1.8rem; font-weight:700; background:linear-gradient(90deg,#00b4d8,#90e0ef); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-links a { margin:0 1rem; color:#d1d5db; font-weight:500; transition:0.3s; }
+    .nav-links a:hover { color:#00b4d8; text-shadow:0 0 10px #00b4d8; }
+    .login-btn { background:linear-gradient(90deg,#00b4d8,#0077b6); border:none; color:#fff; padding:0.6rem 1.4rem; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:500; transition:0.3s; }
+    .login-btn:hover { transform:scale(1.05); box-shadow:0 0 20px #00b4d8; }
+    main { padding-top:8rem; text-align:center; max-width:1200px; margin:0 auto; }
+    h1 { font-size:3rem; margin-bottom:1rem; background:linear-gradient(90deg,#00b4d8,#48cae4,#90e0ef); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:glow 3s ease-in-out infinite alternate; }
+    @keyframes glow { from { text-shadow:0 0 10px #00b4d8; } to { text-shadow:0 0 25px #48cae4; } }
+    p.subtitle { color:#adb5bd; font-size:1.1rem; margin-bottom:3rem; }
+    .partners-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; padding:0 2rem; }
+    .partner-card { background:rgba(255,255,255,0.05); border:1px solid rgba(0,180,216,0.15); border-radius:16px; padding:2rem 1.5rem; box-shadow:0 0 20px rgba(0,180,216,0.15); backdrop-filter:blur(12px); transition:0.3s; }
+    .partner-card:hover { transform:translateY(-8px); box-shadow:0 0 25px rgba(0,180,216,0.4); }
+    .partner-card img { width:80px; height:80px; margin-bottom:1rem; border-radius:50%; border:2px solid #00b4d8; }
+    .partner-card h3 { color:#00b4d8; margin-bottom:0.5rem; }
+    .partner-card p { color:#e2e8f0; font-size:0.95rem; margin-bottom:1rem; }
+    .partner-card a { background:linear-gradient(90deg,#00b4d8,#0077b6); color:#fff; padding:0.5rem 1.2rem; border-radius:8px; display:inline-block; transition:0.3s; }
+    .partner-card a:hover { transform:scale(1.05); box-shadow:0 0 20px #00b4d8; }
+    footer { margin-top:4rem; padding:2rem; text-align:center; color:#64748b; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.05); }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Beacon Bot</div>
+    <nav class="nav-links">
+      <a href="https://beaconbot.site">Dashboard</a>
+      <a href="https://beaconbot.site/commands">Commands</a>
+    </nav>
+    <button class="login-btn" id="loginBtn"><i class="fa-brands fa-discord"></i> Add to Server</button>
+  </header>
+
+  <main>
+    <h1>Our Partners</h1>
+    <p class="subtitle">These incredible partners help Beacon Bot grow and reach new communities.</p>
+
+    <section class="partners-list">
+      <div class="partner-card">
+        <img src="https://beaconbot.site/assets/img/embed.png" alt="Partner One Logo">
+        <h3>Partner One</h3>
+        <p>Innovative tools and community-driven features that enhance the Beacon experience.</p>
+        <a href="https://example.com" target="_blank">Visit</a>
+      </div>
+
+      <div class="partner-card">
+        <img src="https://beaconbot.site/assets/img/embed.png" alt="Partner Two Logo">
+        <h3>Partner Two</h3>
+        <p>Supporting Beacon Bot with integrations and advanced Discord utilities.</p>
+        <a href="https://example.com" target="_blank">Visit</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Beacon Bot — Powered by partnerships that make a difference.</p>
+    </footer>
+  </main>
+
+  <script>
+    const CLIENT_ID = "1426142433111965776";
+    const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&permissions=8&integration_type=0&scope=bot`;
+    document.getElementById("loginBtn").addEventListener("click", () => window.location.href = OAUTH_URL);
+  </script>
+</body>
+</html>
