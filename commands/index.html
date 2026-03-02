@@ -16,98 +16,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beacon Bot | Commands</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://beaconbot.site/assets/css/style-v2.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beacon Bot Commands</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://cdn.discordapp.com/icons/youricon.png" type="image/png" />
+  <style>
+    /* === UNIVERSAL STYLES === */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: radial-gradient(circle at 20% 20%, #0d1b2a, #000814); color: #fff; overflow-x: hidden; }
+    a { text-decoration: none; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,30,0.8); backdrop-filter: blur(12px); padding:1rem 2.5rem; position: fixed; width:100%; top:0; z-index:999; box-shadow:0 0 25px rgba(0,180,216,0.2); }
+    .logo { font-size:1.8rem; font-weight:700; background:linear-gradient(90deg,#00b4d8,#90e0ef); -webkit-background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:1px; }
+    .nav-links a { margin:0 1rem; color:#d1d5db; font-weight:500; transition:0.3s; }
+    .nav-links a:hover { color:#00b4d8; text-shadow:0 0 10px #00b4d8; }
+    .login-btn { background:linear-gradient(90deg,#00b4d8,#0077b6); border:none; color:#fff; padding:0.6rem 1.4rem; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:500; transition:0.3s ease; }
+    .login-btn:hover { transform:scale(1.05); box-shadow:0 0 20px #00b4d8; }
+    main { padding-top: 8rem; text-align:center; max-width:1200px; margin:0 auto; }
+    h1 { font-size:3rem; margin-bottom:1rem; background:linear-gradient(90deg,#00b4d8,#48cae4,#90e0ef); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:glow 3s ease-in-out infinite alternate; }
+    @keyframes glow { from { text-shadow:0 0 10px #00b4d8; } to { text-shadow:0 0 25px #48cae4; } }
+    p.subtitle { color:#adb5bd; font-size:1.1rem; margin-bottom:3rem; }
+    .commands-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; padding:0 2rem; }
+    .category { background: rgba(255,255,255,0.05); border:1px solid rgba(0,180,216,0.15); border-radius:16px; padding:2rem 1.5rem; box-shadow:0 0 20px rgba(0,180,216,0.15); backdrop-filter: blur(12px); transition:0.3s ease; }
+    .category:hover { transform:translateY(-8px); box-shadow:0 0 25px rgba(0,180,216,0.4); }
+    .category h3 { font-size:1.2rem; text-transform:uppercase; color:#00b4d8; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-bottom:1rem; letter-spacing:1px; }
+    .category p { color:#e2e8f0; font-size:0.95rem; margin:0.4rem 0; }
+    .category b { color:#48cae4; }
+    footer { margin-top:4rem; padding:2rem; text-align:center; color:#64748b; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.05); }
+    @media (max-width:768px) { h1 { font-size:2.3rem; } }
+  </style>
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <a href="https://beaconbot.site" class="logo">Beacon</a>
-    <ul class="nav-links">
-      <li><a href="https://beaconbot.site">Home</a></li>
-      <li><a href="https://beaconbot.site/commands">Commands</a></li>
-      <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
-      <li><a href="https://beaconbot.site/partners">Partners</a></li>
-      <li><a href="https://beaconbot.site/team">Team</a></li>
-      <li>
-        <a href="#" id="theme-toggle" class="theme-toggle">
-          <i class="fas fa-moon"></i>
-        </a>
-      </li>
-    </ul>
-    <a href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&integration_type=0&scope=bot"
-      class="invite-btn" target="_blank">Invite Bot</a>
-  </nav>
+  <!-- 🔹 NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Beacon Bot</div>
+    <nav class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="commands.html">Commands</a>
+      <a href="premium.html">Discord Premium</a>
+    </nav>
+    <button class="login-btn" id="loginBtn">
+      <i class="fa-brands fa-discord"></i> Login
+    </button>
+  </header>
 
-  <section class="hero">
+  <!-- 🔹 MAIN CONTENT -->
+  <main>
     <h1>Beacon Bot Commands</h1>
-    <p>Explore all commands available for your Discord server with Beacon Bot.</p>
-  </section>
+    <p class="subtitle">Explore all commands available for your Discord server with Beacon Bot.</p>
 
-  <section class="commands">
-    <div class="cmd-category">
-      <h2>Leveling Commands</h2>
-      <div class="cmd-list">
-        <div><span class="cmd">bal</span> - Check balance</div>
-        <div><span class="cmd">balance</span> - Check balance</div>
-        <div><span class="cmd">daily</span> - Claim daily rewards</div>
-        <div><span class="cmd">give</span> - Give currency to a user</div>
-        <div><span class="cmd">leaderboard</span> - See top users</div>
-        <div><span class="cmd">rank</span> - Check your rank</div>
-        <div><span class="cmd">rob</span> - Rob another user</div>
-        <div><span class="cmd">work</span> - Earn currency by working</div>
+    <section class="commands-list">
+      <div class="category">
+        <h3>Leveling Commands</h3>
+        <p><b>bal</b> — Check balance</p>
+        <p><b>balance</b> — Check balance</p>
+        <p><b>daily</b> — Claim daily rewards</p>
+        <p><b>give</b> — Give currency to a user</p>
+        <p><b>leaderboard</b> — See top users</p>
+        <p><b>rank</b> — Check your rank</p>
+        <p><b>rob</b> — Rob another user</p>
+        <p><b>work</b> — Earn currency by working</p>
       </div>
-    </div>
 
-    <div class="cmd-category">
-      <h2>Moderation Commands</h2>
-      <div class="cmd-list">
-        <div><span class="cmd">antialt</span> - Prevents alt accounts</div>
-        <div><span class="cmd">antighostping</span> - Prevent ghost pings</div>
-        <div><span class="cmd">antilink</span> - Block links</div>
-        <div><span class="cmd">antiraid</span> - Protect against raids</div>
-        <div><span class="cmd">antispam</span> - Block spam</div>
-        <div><span class="cmd">ban</span> - Ban a user</div>
-        <div><span class="cmd">cleanwarns</span> - Clear warnings</div>
-        <div><span class="cmd">kick</span> - Kick a user</div>
-        <div><span class="cmd">mute</span> - Mute a user</div>
-        <div><span class="cmd">raidmode</span> - Enable raid protection</div>
-        <div><span class="cmd">shadowban</span> - Shadowban a user</div>
-        <div><span class="cmd">tempban</span> - Temporarily ban a user</div>
-        <div><span class="cmd">tempmute</span> - Temporarily mute a user</div>
-        <div><span class="cmd">unban</span> - Unban a user</div>
-        <div><span class="cmd">unmute</span> - Unmute a user</div>
+      <div class="category">
+        <h3>Miscellaneous Commands</h3>
+        <p><b>help</b> — Show help menu</p>
       </div>
-    </div>
 
-    <div class="cmd-category">
-      <h2>User Commands</h2>
-      <div class="cmd-list">
-        <div><span class="cmd">info</span> - Bot info</div>
-        <div><span class="cmd">lock</span> - Lock a channel</div>
-        <div><span class="cmd">ping</span> - Check bot latency</div>
-        <div><span class="cmd">say</span> - Make the bot speak</div>
-        <div><span class="cmd">serverinfo</span> - View server information</div>
-        <div><span class="cmd">setfarewell</span> - Set farewell message</div>
-        <div><span class="cmd">setwelcome</span> - Set welcome message</div>
-        <div><span class="cmd">staff</span> - View staff members</div>
-        <div><span class="cmd">unlock</span> - Unlock a channel</div>
-        <div><span class="cmd">unsetfarewell</span> - Remove farewell message</div>
-        <div><span class="cmd">unsetwelcome</span> - Remove welcome message</div>
-        <div><span class="cmd">userinfo</span> - Get user info</div>
-        <div><span class="cmd">whois</span> - Get detailed user info</div>
+      <div class="category">
+        <h3>Server Tools Commands</h3>
+        <p><b>uptime</b> — Check bot uptime</p>
       </div>
-    </div>
-  </section>
 
-  <footer class="footer">
-    <p>© 2025 Beacon Bot. Designed for Discord communities worldwide. Made with ❤️ by kaosu.</p>
-  </footer>
+      <div class="category">
+        <h3>Set Prefix Commands</h3>
+        <p><b>setprefix</b> — Change bot prefix</p>
+      </div>
 
-  <script src="https://beaconbot.site/assets/js/navbar.js"></script>
-  <script src="https://beaconbot.site/assets/js/darkmodetoggle.js"></script>
+      <div class="category">
+        <h3>Social Actions Commands</h3>
+        <p><b>hug</b> — Hug a user</p>
+        <p><b>kiss</b> — Kiss a user</p>
+        <p><b>pat</b> — Pat a user</p>
+        <p><b>slap</b> — Slap a user</p>
+      </div>
+
+      <div class="category">
+        <h3>Testing Commands</h3>
+        <p><b>boosters</b> — View boosters</p>
+        <p><b>cmds</b> — List all commands</p>
+        <p><b>logsetup</b> — Configure logging</p>
+        <p><b>luna</b> — Luna test command</p>
+        <p><b>servers</b> — Check servers</p>
+      </div>
+
+      <div class="category">
+        <h3>Truth or Dare Commands</h3>
+        <p><b>dare</b> — Get a dare</p>
+        <p><b>truth</b> — Get a truth question</p>
+      </div>
+
+      <div class="category">
+        <h3>VC Points Commands</h3>
+        <p><b>join</b> — Start VC tracking</p>
+        <p><b>stopvcpoints</b> — Stop VC tracking</p>
+        <p><b>vcleaderboard</b> — Show VC leaderboard</p>
+        <p><b>vcpoints</b> — Check VC points</p>
+      </div>
+
+      <div class="category">
+        <h3>Moderation Commands</h3>
+        <p><b>antialt</b> — Prevent alt accounts</p>
+        <p><b>antighostping</b> — Prevent ghost pings</p>
+        <p><b>antilink</b> — Block links</p>
+        <p><b>antiraid</b> — Protect against raids</p>
+        <p><b>antispam</b> — Block spam</p>
+        <p><b>ban</b> — Ban a user</p>
+        <p><b>cleanwarns</b> — Clear warnings</p>
+        <p><b>kick</b> — Kick a user</p>
+        <p><b>mute</b> — Mute a user</p>
+        <p><b>raidmode</b> — Enable raid protection</p>
+        <p><b>shadowban</b> — Shadowban a user</p>
+        <p><b>tempban</b> — Temporarily ban a user</p>
+        <p><b>tempmute</b> — Temporarily mute a user</p>
+        <p><b>unban</b> — Unban a user</p>
+        <p><b>unmute</b> — Unmute a user</p>
+      </div>
+
+      <div class="category">
+        <h3>User Commands</h3>
+        <p><b>info</b> — Bot info</p>
+        <p><b>lock</b> — Lock a channel</p>
+        <p><b>ping</b> — Check bot latency</p>
+        <p><b>say</b> — Make the bot speak</p>
+        <p><b>serverinfo</b> — View server information</p>
+        <p><b>setfarewell</b> — Set farewell message</p>
+        <p><b>setwelcome</b> — Set welcome message</p>
+        <p><b>staff</b> — View staff members</p>
+        <p><b>unlock</b> — Unlock a channel</p>
+        <p><b>unsetfarewell</b> — Remove farewell message</p>
+        <p><b>unsetwelcome</b> — Remove welcome message</p>
+        <p><b>userinfo</b> — Get user info</p>
+        <p><b>whois</b> — Get detailed user info</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Beacon Bot — Built for the future of Discord communities.</p>
+    </footer>
+  </main>
+
+  <script>
+    const CLIENT_ID = "1426142433111965776";
+    const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&permissions=8&integration_type=0&scope=bot`;
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      window.location.href = OAUTH_URL;
+    });
+  </script>
 </body>
 </html>
