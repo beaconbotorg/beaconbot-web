@@ -14,7 +14,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,56 +24,70 @@
 <script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="/index.html" class="logo">Beacon</a>
-    <ul class="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/commands/index.html">Commands</a></li>
-      <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
-      <li><a href="/partners/index.html">Partners</a></li>
-      <li><a href="/team/index.html">Team</a></li>
-    </ul>
-    <button class="login-btn" id="loginBtn"><i class="fa-brands fa-discord"></i> Add to Server</button>
-  </nav>
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Beacon</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="commands/index.html">Commands</a></li>
+    <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
+    <li><a href="partners/index.html">Partners</a></li>
+    <li><a href="team/index.html">Team</a></li>
+  </ul>
+  <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&scope=bot">Add to Server</a>
+  <a href="#" class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></a>
+</nav>
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to Beacon Bot</h1>
-      <p>The ultimate Discord bot for communities and servers.</p>
-      <button class="login-btn" id="loginBtn2"><i class="fa-brands fa-discord"></i> Add to Server</button>
-    </section>
+<main>
+  <section class="hero">
+    <h1>Welcome to Beacon Bot</h1>
+    <p>The ultimate Discord bot for communities and servers — moderation, fun, and utility all in one place.</p>
+  </section>
 
-    <section class="features">
-      <h2>Features</h2>
-      <div class="grid">
-        <div class="feature-card">
-          <i class="fa-solid fa-bolt"></i>
-          <h3>Fast & Reliable</h3>
-          <p>Lightning fast commands and uptime for your server.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-cogs"></i>
-          <h3>Customizable</h3>
-          <p>Configure your server exactly the way you want.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-shield"></i>
-          <h3>Secure</h3>
-          <p>Built with safety and privacy in mind.</p>
-        </div>
+  <section class="features">
+    <h2 class="section-title">Features</h2>
+    <div class="features-grid">
+      <div class="feature-tile">
+        <div class="feature-placeholder">⚡ Fast</div>
+        <h3>Lightning Fast</h3>
+        <p>Commands execute instantly, keeping your server running smoothly.</p>
       </div>
-    </section>
-  </main>
+      <div class="feature-tile">
+        <div class="feature-placeholder">🛡️ Secure</div>
+        <h3>Secure & Reliable</h3>
+        <p>We prioritize server security with safe, tested commands.</p>
+      </div>
+      <div class="feature-tile">
+        <div class="feature-placeholder">🎨 Custom</div>
+        <h3>Fully Customizable</h3>
+        <p>Adjust settings, prefixes, and modules to fit your server perfectly.</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <p>© 2025 Beacon Bot — Partnering for the future of Discord communities.</p>
-  </footer>
+<footer class="footer">
+  © 2025 Beacon Bot — Partnering for the future of Discord communities.
+</footer>
 
 <script>
-const CLIENT_ID = "1426142433111965776";
-const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&permissions=8&scope=bot`;
-document.getElementById("loginBtn").addEventListener("click", () => window.location.href = OAUTH_URL);
-document.getElementById("loginBtn2").addEventListener("click", () => window.location.href = OAUTH_URL);
+  // Theme toggle
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    const html = document.documentElement;
+    if (html.getAttribute('data-theme') === 'light') {
+      html.setAttribute('data-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+    }
+  });
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
 </script>
 </body>
 </html>
