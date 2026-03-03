@@ -14,81 +14,72 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beacon Bot | Home</title>
-<link rel="stylesheet" href="https://beaconbot.site/assets/css/style.css">
-<link rel="icon" href="assets/img/logo.png" type="image/png">
-<script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beacon Bot | Advanced Discord Bot</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="logo">Beacon</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="commands/index.html">Commands</a></li>
-    <li><a href="partners/index.html">Partners</a></li>
-    <li><a href="team/index.html">Team</a></li>
-    <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
-  </ul>
-  <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&scope=bot">Add to Server</a>
-  <a href="#" class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></a>
-</nav>
+<header class="navbar">
+  <div class="container nav-content">
+    <div class="logo">🤖 Beacon Bot</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="commands/">Commands</a>
+      <a href="team/">Team</a>
+      <a href="partners/">Partners</a>
+    </nav>
+    <a class="btn primary" href="#invite">Invite Bot</a>
+  </div>
+</header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Welcome to Beacon Bot</h1>
-    <p>The ultimate Discord bot for communities — moderation, fun, and utility all in one place.</p>
-  </section>
+<section class="hero">
+  <div class="container">
+    <h1>The Next Generation Discord Utility Bot</h1>
+    <p>Advanced moderation, analytics, automations, and performance optimized for large communities.</p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="#invite">Get Started</a>
+      <a class="btn secondary" href="#features">Learn More</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Features -->
-  <section class="features">
-    <h2 class="section-title">Features</h2>
-    <div class="features-grid">
-      <div class="feature-tile">
-        <div class="feature-placeholder">⚡ Fast</div>
-        <h3>Lightning Fast</h3>
-        <p>Commands execute instantly, keeping your server running smoothly.</p>
+<section id="features" class="features">
+  <div class="container">
+    <h2>Powerful Features</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Advanced Moderation</h3>
+        <p>Auto-mod, anti-raid, logging, smart punishments.</p>
       </div>
-      <div class="feature-tile">
-        <div class="feature-placeholder">🛡️ Secure</div>
-        <h3>Secure & Reliable</h3>
-        <p>We prioritize server security with safe, tested commands.</p>
+      <div class="card">
+        <h3>Blazing Performance</h3>
+        <p>Optimized architecture with 99.9% uptime.</p>
       </div>
-      <div class="feature-tile">
-        <div class="feature-placeholder">🎨 Custom</div>
-        <h3>Fully Customizable</h3>
-        <p>Adjust settings, prefixes, and modules to fit your server perfectly.</p>
+      <div class="card">
+        <h3>Deep Analytics</h3>
+        <p>Server growth tracking and engagement metrics.</p>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<footer class="footer">
-  © 2025 Beacon Bot — Partnering for the future of Discord communities.
+<section id="invite" class="cta">
+  <div class="container">
+    <h2>Ready to Upgrade Your Server?</h2>
+    <a class="btn primary large" href="#">Invite Beacon Bot</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Beacon Bot. All rights reserved.</p>
+  </div>
 </footer>
 
-<script>
-// Theme toggle
-const toggle = document.getElementById('themeToggle');
-toggle.addEventListener('click', e => {
-  e.preventDefault();
-  const html = document.documentElement;
-  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-});
-
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if(window.scrollY>50) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
-</script>
 </body>
 </html>
-
