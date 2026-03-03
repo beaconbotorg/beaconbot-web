@@ -19,30 +19,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beacon Bot | Home</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style-v2.css">
 <link rel="icon" href="assets/img/logo.png" type="image/png">
 <script src="https://kit.fontawesome.com/a2d04e0f1b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<!-- Navbar -->
 <nav class="navbar" id="navbar">
   <a href="index.html" class="logo">Beacon</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="commands/index.html">Commands</a></li>
-    <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
     <li><a href="partners/index.html">Partners</a></li>
     <li><a href="team/index.html">Team</a></li>
+    <li><a href="https://discord.gg/7edn5DAA2a" target="_blank">Support</a></li>
   </ul>
   <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&scope=bot">Add to Server</a>
   <a href="#" class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></a>
 </nav>
 
 <main>
+  <!-- Hero -->
   <section class="hero">
     <h1>Welcome to Beacon Bot</h1>
-    <p>The ultimate Discord bot for communities and servers — moderation, fun, and utility all in one place.</p>
+    <p>The ultimate Discord bot for communities — moderation, fun, and utility all in one place.</p>
   </section>
 
+  <!-- Features -->
   <section class="features">
     <h2 class="section-title">Features</h2>
     <div class="features-grid">
@@ -70,24 +74,20 @@
 </footer>
 
 <script>
-  // Theme toggle
-  const toggle = document.getElementById('themeToggle');
-  toggle.addEventListener('click', e => {
-    e.preventDefault();
-    const html = document.documentElement;
-    if (html.getAttribute('data-theme') === 'light') {
-      html.setAttribute('data-theme', 'dark');
-    } else {
-      html.setAttribute('data-theme', 'light');
-    }
-  });
+// Theme toggle
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', e => {
+  e.preventDefault();
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+});
 
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  });
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(window.scrollY>50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
 </script>
 </body>
 </html>
