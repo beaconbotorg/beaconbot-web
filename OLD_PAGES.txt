@@ -1,0 +1,2 @@
+The original uploaded Beacon pages are preserved unchanged under /old/.
+New main landing page is /index.html.

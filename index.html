@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beacon Bot | Discord's Community Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--bg:#030711;--bg2:#07111e;--card:rgba(10,20,34,.72);--line:rgba(120,190,255,.13);--blue:#00b4d8;--cyan:#48cae4;--white:#f5fbff;--muted:#8293a8}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 10%,rgba(0,180,216,.12),transparent 30%),radial-gradient(circle at 85% 25%,rgba(72,202,228,.08),transparent 28%),linear-gradient(#ffffff03 1px,transparent 1px),linear-gradient(90deg,#ffffff03 1px,transparent 1px);background-size:auto,auto,55px 55px,55px 55px}
+a{text-decoration:none;color:inherit}.nav{height:76px;position:fixed;top:0;left:0;right:0;z-index:20;border-bottom:1px solid transparent;background:rgba(3,7,17,.58);backdrop-filter:blur(18px);transition:.25s}.nav.scrolled{border-color:var(--line);background:rgba(3,7,17,.88)}
+.navin{height:100%;max-width:1240px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px}.logo-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),#0077b6);box-shadow:0 0 28px rgba(0,180,216,.28)}.links{display:flex;gap:7px}.links a{padding:9px 13px;color:#a9b8c9;font-size:13px;border-radius:8px}.links a:hover{color:#fff;background:#ffffff07}.navbtn{background:linear-gradient(100deg,var(--blue),#0077b6);padding:11px 16px;border-radius:9px;font-size:12px;font-weight:800;box-shadow:0 8px 30px rgba(0,180,216,.18)}
+.hero{min-height:850px;display:grid;place-items:center;padding:130px 20px 80px;position:relative}.hero-inner{text-align:center;max-width:1000px}.pill{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#ffffff05;color:#9bb3c9;font-size:11px}.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 12px #4ade80}
+h1{font-size:clamp(46px,7vw,88px);line-height:.98;letter-spacing:-4px;margin:24px 0 20px;background:linear-gradient(110deg,#fff,#ccefff 45%,var(--cyan));-webkit-background-clip:text;color:transparent}.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:17px;line-height:1.7}.actions{margin-top:32px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.primary,.secondary{padding:13px 20px;border-radius:10px;font-size:13px;font-weight:800}.primary{background:linear-gradient(100deg,var(--blue),#0077b6);box-shadow:0 12px 35px rgba(0,180,216,.2)}.secondary{border:1px solid var(--line);background:#ffffff04;color:#c7d8e8}.preview{margin:75px auto 0;max-width:1030px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#0c1725dd,#06101add);box-shadow:0 35px 100px #0009;overflow:hidden;text-align:left}.bar{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 14px}.bar i{width:8px;height:8px;border-radius:50%;background:#ffffff20}.bar span{margin-left:10px;color:#5f738a;font-size:9px}.dash{display:grid;grid-template-columns:190px 1fr;min-height:330px}.side{border-right:1px solid var(--line);padding:18px}.side b{font-size:11px;letter-spacing:1px}.side p{margin:17px 0;color:#70839a;font-size:9px}.side div{padding:9px;color:#7890a8;font-size:10px;border-radius:7px;margin:3px 0}.side .sel{color:#fff;background:#00b4d812}.screen{padding:20px}.minihead{display:flex;justify-content:space-between}.minihead h2{font-size:18px}.minihead small{color:#6e8399}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.metric{border:1px solid var(--line);border-radius:10px;padding:15px;background:#ffffff03}.metric small{color:#71869b;font-size:9px}.metric strong{display:block;font-size:20px;margin-top:7px}.rows{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:hidden}.row{padding:11px 13px;border-bottom:1px solid #ffffff06;display:flex;justify-content:space-between;color:#9eb0c1;font-size:10px}.row:last-child{border:0}.online{color:#4ade80}
+section{max-width:1180px;margin:auto;padding:100px 24px}.section-head{text-align:center;max-width:700px;margin:auto}.eyebrow{font-size:10px;color:var(--cyan);font-weight:800;letter-spacing:2px}.section-head h2{font-size:40px;margin:10px 0}.section-head p{color:var(--muted);line-height:1.7}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}.card{padding:25px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(15px);border-radius:15px;transition:.25s}.card:hover{transform:translateY(-5px);border-color:#00b4d838}.icon{width:42px;height:42px;border-radius:11px;background:#00b4d812;color:var(--cyan);display:grid;place-items:center}.card h3{font-size:15px;margin:17px 0 8px}.card p{font-size:12px;line-height:1.7;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}.stat{text-align:center;padding:23px;border:1px solid var(--line);border-radius:13px;background:#ffffff03}.stat strong{display:block;font-size:26px}.stat span{color:var(--muted);font-size:10px;margin-top:5px;display:block}
+.cta{max-width:1180px;margin:30px auto 90px;padding:60px 25px;border:1px solid var(--line);border-radius:20px;text-align:center;background:radial-gradient(circle at 50% 0,#00b4d812,transparent 55%),#ffffff03}.cta h2{font-size:38px}.cta p{color:var(--muted);margin:12px 0 25px}
+footer{border-top:1px solid var(--line);padding:30px 24px;color:#607389;font-size:11px}footer div{max-width:1180px;margin:auto;display:flex;justify-content:space-between}
+@media(max-width:850px){.links{display:none}.dash{grid-template-columns:1fr}.side{display:none}.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}h1{letter-spacing:-2px}.metrics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="navin">
+<a class="logo" href="/"><span class="logo-mark">B</span><span>BEACON</span></a>
+<div class="links"><a href="#features">Features</a><a href="commands.html">Commands</a><a href="#dashboard">Dashboard</a><a href="partners.html">Partners</a><a href="team.html">Team</a></div>
+<a class="navbtn" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&integration_type=0&scope=bot">Add to Discord</a>
+</div></nav>
+
+<header class="hero"><div class="hero-inner">
+<div class="pill"><span class="dot"></span> BEACON IS ONLINE • BUILT FOR DISCORD COMMUNITIES</div>
+<h1>Your server.<br>Smarter with Beacon.</h1>
+<p>Powerful moderation, economy, leveling, protection and server tools — brought together in one clean Discord bot and dashboard.</p>
+<div class="actions"><a class="primary" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&integration_type=0&scope=bot"><i class="fa-brands fa-discord"></i> Add Beacon to Discord</a><a class="secondary" href="#dashboard">Explore Dashboard <i class="fa-solid fa-arrow-down"></i></a></div>
+<div class="preview" id="dashboard"><div class="bar"><i></i><i></i><i></i><span>beaconbot.site / dashboard</span></div><div class="dash"><div class="side"><b>BEACON</b><p>COMMAND CENTER</p><div class="sel">Overview</div><div>My Servers</div><div>Settings</div><div>Moderation</div><div>Economy</div></div><div class="screen"><div class="minihead"><div><h2>Server Overview</h2><small>Manage your community</small></div><span class="online">● Operational</span></div><div class="metrics"><div class="metric"><small>MEMBERS</small><strong>1,842</strong></div><div class="metric"><small>COMMANDS</small><strong>18,429</strong></div><div class="metric"><small>UPTIME</small><strong>99.9%</strong></div></div><div class="rows"><div class="row"><span>Moderation protection</span><b class="online">Enabled</b></div><div class="row"><span>Welcome system</span><b class="online">Enabled</b></div><div class="row"><span>Logging</span><b class="online">Enabled</b></div></div></div></div></div>
+</div></header>
+
+<section id="features"><div class="section-head"><div class="eyebrow">EVERYTHING IN ONE PLACE</div><h2>Built to run your community.</h2><p>Keep the original Beacon functionality, while giving it a stronger front door and a cleaner way to discover everything Beacon can do.</p></div>
+<div class="cards">
+<div class="card"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Advanced Moderation</h3><p>Anti-spam, anti-link, anti-raid, warnings, bans, mutes and other tools for keeping your server under control.</p></div>
+<div class="card"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><h3>Leveling & Economy</h3><p>Give your community reasons to stay active with balances, rewards, ranks, leaderboards and progression.</p></div>
+<div class="card"><div class="icon"><i class="fa-solid fa-server"></i></div><h3>Server Management</h3><p>Configure Beacon per server and eventually manage its settings from one central dashboard.</p></div>
+<div class="card"><div class="icon"><i class="fa-solid fa-wave-square"></i></div><h3>VC Points</h3><p>Track voice activity and reward members for participating in your community.</p></div>
+<div class="card"><div class="icon"><i class="fa-solid fa-heart"></i></div><h3>Social Commands</h3><p>Keep your community interactive with fun social commands such as hug, kiss, pat and slap.</p></div>
+<div class="card"><div class="icon"><i class="fa-solid fa-terminal"></i></div><h3>Command Library</h3><p>Browse Beacon's command categories and discover what your server can use.</p></div>
+</div>
+<div class="stats"><div class="stat"><strong>247+</strong><span>Servers</span></div><div class="stat"><strong>12K+</strong><span>Users</span></div><div class="stat"><strong>99.9%</strong><span>Target uptime</span></div><div class="stat"><strong>24/7</strong><span>Community protection</span></div></div>
+</section>
+
+<div class="cta"><h2>Ready to bring Beacon to your server?</h2><p>Keep your community protected, active and connected.</p><a class="primary" href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&integration_type=0&scope=bot">Add Beacon to Discord</a></div>
+<footer><div><span>© 2026 Beacon Bot</span><span>Discord communities worldwide • <a href="team.html">Team</a> • <a href="partners.html">Partners</a> • <a href="commands.html">Commands</a></span></div></footer>
+<script>
+addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+</script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon Bot | Commands</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #030711;
+      --bg2: #07111e;
+      --card: rgba(10,20,34,.72);
+      --line: rgba(120,190,255,.13);
+      --blue: #00b4d8;
+      --cyan: #48cae4;
+      --white: #f5fbff;
+      --muted: #8293a8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,180,216,.12), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(72,202,228,.08), transparent 28%),
+        linear-gradient(#ffffff03 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff03 1px, transparent 1px);
+      background-size: auto, auto, 55px 55px, 55px 55px;
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav {
+      height: 76px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,7,17,.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .navin {
+      height: 100%;
+      max-width: 1240px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue), #0077b6);
+      box-shadow: 0 0 28px rgba(0,180,216,.28);
+    }
+
+    .links {
+      display: flex;
+      gap: 7px;
+    }
+
+    .links a {
+      padding: 9px 13px;
+      color: #a9b8c9;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    .links a:hover {
+      color: #fff;
+      background: #ffffff07;
+    }
+
+    .navbtn {
+      background: linear-gradient(100deg, var(--blue), #0077b6);
+      padding: 11px 16px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 30px rgba(0,180,216,.18);
+    }
+
+    .page-header {
+      padding: 160px 24px 70px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      color: var(--cyan);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(42px, 6vw, 70px);
+      margin: 12px 0 16px;
+      letter-spacing: -3px;
+      background: linear-gradient(110deg, #fff, #ccefff 45%, var(--cyan));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .page-header p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .commands-list {
+      max-width: 1180px;
+      margin: auto;
+      padding: 20px 24px 100px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      transition: .25s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      border-color: #00b4d838;
+    }
+
+    .category h3 {
+      font-size: 16px;
+      margin-bottom: 17px;
+      color: var(--white);
+    }
+
+    .category h3:before {
+      content: ">";
+      color: var(--cyan);
+      margin-right: 8px;
+    }
+
+    .category p {
+      padding: 9px 0;
+      color: var(--muted);
+      font-size: 12px;
+      border-bottom: 1px solid #ffffff06;
+    }
+
+    .category p:last-child {
+      border-bottom: 0;
+    }
+
+    .category b {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 24px;
+      color: #607389;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media(max-width:850px) {
+      .links {
+        display: none;
+      }
+
+      .commands-list {
+        grid-template-columns: 1fr;
+      }
+
+      .navbtn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="navin">
+
+    <a class="logo" href="/">
+      <span class="logo-mark">B</span>
+      <span>BEACON</span>
+    </a>
+
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="commands.html">Commands</a>
+      <a href="index.html#dashboard">Dashboard</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <a class="navbtn"
+       href="https://discord.com/oauth2/authorize?client_id=1426142433111965776&permissions=8&integration_type=0&scope=bot">
+      Add to Discord
+    </a>
+
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="eyebrow">BEACON COMMAND LIBRARY</div>
+
+  <h1>Commands</h1>
+
+  <p>
+    Explore everything Beacon Bot has to offer, from moderation and
+    server protection to economy, social and voice commands.
+  </p>
+</header>
+
+<section class="commands-list">
+
+  <div class="category">
+    <h3>Leveling Commands</h3>
+    <p><b>bal</b> — Check balance</p>
+    <p><b>balance</b> — Check balance</p>
+    <p><b>daily</b> — Claim daily rewards</p>
+    <p><b>give</b> — Give currency to a user</p>
+    <p><b>leaderboard</b> — See top users</p>
+    <p><b>rank</b> — Check your rank</p>
+    <p><b>rob</b> — Rob another user</p>
+    <p><b>work</b> — Earn currency by working</p>
+  </div>
+
+  <div class="category">
+    <h3>Miscellaneous Commands</h3>
+    <p><b>help</b> — Show help menu</p>
+  </div>
+
+  <div class="category">
+    <h3>Server Tools Commands</h3>
+    <p><b>uptime</b> — Check bot uptime</p>
+  </div>
+
+  <div class="category">
+    <h3>Set Prefix Commands</h3>
+    <p><b>setprefix</b> — Change bot prefix</p>
+  </div>
+
+  <div class="category">
+    <h3>Social Actions Commands</h3>
+    <p><b>hug</b> — Hug a user</p>
+    <p><b>kiss</b> — Kiss a user</p>
+    <p><b>pat</b> — Pat a user</p>
+    <p><b>slap</b> — Slap a user</p>
+  </div>
+
+  <div class="category">
+    <h3>Testing Commands</h3>
+    <p><b>boosters</b> — View boosters</p>
+    <p><b>cmds</b> — List all commands</p>
+    <p><b>logsetup</b> — Configure logging</p>
+    <p><b>luna</b> — Luna test command</p>
+    <p><b>servers</b> — Check servers</p>
+  </div>
+
+  <div class="category">
+    <h3>Truth or Dare Commands</h3>
+    <p><b>dare</b> — Get a dare</p>
+    <p><b>truth</b> — Get a truth question</p>
+  </div>
+
+  <div class="category">
+    <h3>VC Points Commands</h3>
+    <p><b>join</b> — Start VC tracking</p>
+    <p><b>stopvcpoints</b> — Stop VC tracking</p>
+    <p><b>vcleaderboard</b> — Show VC leaderboard</p>
+    <p><b>vcpoints</b> — Check VC points</p>
+  </div>
+
+  <div class="category">
+    <h3>Moderation Commands</h3>
+    <p><b>antialt</b> — Prevent alt accounts</p>
+    <p><b>antighostping</b> — Prevent ghost pings</p>
+    <p><b>antilink</b> — Block links</p>
+    <p><b>antiraid</b> — Protect against raids</p>
+    <p><b>antispam</b> — Block spam</p>
+    <p><b>ban</b> — Ban a user</p>
+    <p><b>cleanwarns</b> — Clear warnings</p>
+    <p><b>kick</b> — Kick a user</p>
+    <p><b>mute</b> — Mute a user</p>
+    <p><b>raidmode</b> — Enable raid protection</p>
+    <p><b>shadowban</b> — Shadowban a user</p>
+    <p><b>tempban</b> — Temporarily ban a user</p>
+    <p><b>tempmute</b> — Temporarily mute a user</p>
+    <p><b>unban</b> — Unban a user</p>
+    <p><b>unmute</b> — Unmute a user</p>
+  </div>
+
+  <div class="category">
+    <h3>User Commands</h3>
+    <p><b>info</b> — Bot info</p>
+    <p><b>lock</b> — Lock a channel</p>
+    <p><b>ping</b> — Check bot latency</p>
+    <p><b>say</b> — Make the bot speak</p>
+    <p><b>serverinfo</b> — View server information</p>
+    <p><b>setfarewell</b> — Set farewell message</p>
+    <p><b>setwelcome</b> — Set welcome message</p>
+    <p><b>staff</b> — View staff members</p>
+    <p><b>unlock</b> — Unlock a channel</p>
+    <p><b>unsetfarewell</b> — Remove farewell message</p>
+    <p><b>unsetwelcome</b> — Remove welcome message</p>
+    <p><b>userinfo</b> — Get user info</p>
+    <p><b>whois</b> — Get detailed user info</p>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 Beacon Bot — Built for the future of Discord communities.</p>
+</footer>
+
+</body>
+</html>
