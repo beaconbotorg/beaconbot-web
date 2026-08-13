@@ -1,1 +1,0 @@
-Live Discord integration is in server/server.js. Original pages are preserved under old/.
