@@ -37,7 +37,7 @@
         if (!response.ok) throw new Error('Exchange failed');
         location.replace(`${siteUrl}/`);
       } catch {
-        status.textContent = 'Could not complete sign-in. Make sure the bot API is running at api.beaconbot.site.';
+        status.textContent = 'Could not complete sign-in. Make sure the bot is running and api.beaconbot.site is reachable.';
       }
     })();
   </script>
