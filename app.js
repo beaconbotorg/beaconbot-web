@@ -119,7 +119,19 @@ function renderRoleMenu() {
   menu.innerHTML = state.authenticated ? '<small>DISCORD ACCOUNT</small><div class="signed-in">Signed in securely with Discord</div><button id="roleLogout"><span>Sign out</span> &rarr;</button>' : '<small>DISCORD ACCOUNT</small><button id="discordLogin"><span>Sign in with Discord</span> &rarr;</button>';
   $('#roleLogout')?.addEventListener('click', logout); $('#discordLogin')?.addEventListener('click', login);
 }
-function login() { window.location.assign(apiUrl('/auth/discord')); }
+function loginUrl() { return apiUrl('/auth/discord'); }
+
+async function login() {
+  const target = loginUrl();
+  try {
+    const response = await fetch(apiUrl('/health'), { credentials: 'include' });
+    if (!response.ok) throw new Error('Bot API unavailable');
+  } catch {
+    toast(`Cannot reach the bot API at ${apiBase()}. Check that the bot is running and api.beaconbot.site DNS points to your bot host.`);
+    return;
+  }
+  window.location.assign(target);
+}
 async function logout() { await fetch(apiUrl('/auth/logout'), { method: 'POST', credentials: 'include' }); state.authenticated = false; state.user = null; $('#accountButton b').textContent = 'Sign in with Discord'; $('#accountButton .avatar').textContent = '->'; setRole('member'); $('#roleMenu').classList.remove('open'); renderTickets(); renderNotifications(); updateNotificationBadge(); toast('Signed out successfully.'); }
 async function syncAuth() { try { const response = await fetch(apiUrl('/auth/me'), { credentials: 'include' }); if (!response.ok) return; const { user } = await response.json(); state.authenticated = true; state.user = user; $('#accountButton b').textContent = user.username; $('#accountButton .avatar').innerHTML = `<img src="${avatarUrl(user.id, user.avatar)}" alt="">`; setRole(user.role); renderTickets(); renderNotifications(); updateNotificationBadge(); } catch {} }
 
